@@ -102,7 +102,6 @@ La función copia los punteros de la pila P1 en la pila P2.
 El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
-
 void copia_pila(Stack* P1, Stack* P2) 
 {
    int *elemento = first(P1) ;
@@ -122,12 +121,55 @@ Ejercicio 5.
 La función verifica si la cadena de entrada tiene sus 
 paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
-*/
 
+**Paréntesis balanceados** se refiere a una secuencia en la que cada tipo 
+de paréntesis abierto (ya sean paréntesis redondos `()`, corchetes `[]`, o 
+llaves `{}`) se cierra en el orden inverso al que se abrió. Esto asegura que 
+todas las aperturas tienen su correspondiente cierre en el orden correcto. 
+  
+Por ejemplo, la secuencia `([{}])` está balanceada porque cada paréntesis 
+que se abre se cierra adecuadamente en reversa a su orden de apertura. 
+  En contraste, `([)]` es un ejemplo de paréntesis desbalanceados, ya que 
+aunque todos los tipos de paréntesis se abren y cierran, el orden no es el 
+correcto: el corchete se cierra antes de cerrar el paréntesis que lo 
+contiene inicialmente.
+*/
 int parentesisBalanceados(char *cadena) 
 {
+   //Stack *pila = crea_lista() ;
+   char *elemento = first(cadena) ;
+   int talla = get_size(cadena) ;
+   int cont = 0 ;
 
-
-   return 0 ;
+   if (talla % 2 == 0)
+   {
+      int mitad = talla / 2 ;
+      /*
+                  ([{}])
+         elemento          cadena
+            ([{          }])
+            {              ) 
+            [              ]
+            (              }
+      */
+                                                                        
+      for (int k = (talla - 1) ; k >= mitad ; k--)                                 
+      {                                                            
+         if (elemento == '(' && cadena[k] == ')')                  
+            cont++ ;
+         else if (elemento == '[' && cadena[k] == ']')
+            cont++ ;
+         else if (elemento == '{' && cadena[k] == '}')
+            cont++ ;
+         else
+            return 0 ;
+         
+         elemento = next(cadena) ;
+      }
+      
+      if (cont == mitad)
+         return 1 ; // balanceados
+   }
+   return 0 ; // no balanceados
 }
 
