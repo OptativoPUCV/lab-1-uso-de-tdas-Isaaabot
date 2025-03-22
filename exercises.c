@@ -85,25 +85,15 @@ posiciona en el elemento anterior.
 */
 void eliminaElementos(List* L, int elem)
 {
-   /*
    int *elemento = first(L) ;
 
    while (elemento != NULL)
    {
       if (elemento == elem)  
-         popCurrent() ;
+         popCurrent(L) ;
       
       elemento = next(L) ;
    }
-   */
-   /*
-   for (int k = 0; k < 10; k++)
-   {
-      int **L ;
-      if (*(L[k]) == elem)
-         popCurrent(*L[k]) ;
-   }
-   */
 }
 
 /*
@@ -115,14 +105,13 @@ Puedes usar una pila auxiliar.
 
 void copia_pila(Stack* P1, Stack* P2) 
 {
-   //Stack* aux = create_stack() ;
    int *elemento = first(P1) ;
    int talla = get_size(P1) ;
 
-   while (talla != -1)
-   {
-      pushBack(P2, elemento) ;
-      elemento = next(P1) ;
+   while (talla != -1)                    
+   {                                      
+      pushBack(P2, elemento) ;            
+      elemento = next(P1) ;               
 
       talla-- ;
    }
