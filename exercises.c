@@ -62,9 +62,9 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
 retorne la suma de sus elementos.
 */
-/*
 int sumaLista(List *L) 
 {
+   /*
    int suma = 0 ;                         // Se crea variable "suma" para poder sumar todos los elementos
 
    for (int k = 0; k < 10; k++)
@@ -73,8 +73,9 @@ int sumaLista(List *L)
       suma += *L[k] ;                      // Se va sumando cada elemento a la variable "suma"
    }
    return suma ;                          // Se retorna la suma :)
+   */
 }
-*/
+
 /*
 Ejercicio 3.
 Crea una función que reciba una lista de punteros a int (int*) y
@@ -83,17 +84,18 @@ de la lista que sean iguales a elem.
 Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
-/*
 void eliminaElementos(List* L, int elem)
 {
+   /*
    for (int k = 0; k < 10; k++)
    {
       int **L ;
       if (*(L[k]) == elem)
          popCurrent(*L[k]) ;
    }
+   */
 }
-*/
+
 /*
 Ejercicio 4.
 La función copia los punteros de la pila P1 en la pila P2.

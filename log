@@ -290,3 +290,14 @@ test.c:132:5: error: implicit declaration of function 'eliminaElementos' [-Werro
 cc1.exe: all warnings being treated as errors
 Compilation failed
 d872519
+Sat, Mar 22, 2025 12:51:09 AM: 
+ exercises.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'sumaLista':
+exercises.c:77:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+fa20e5c
