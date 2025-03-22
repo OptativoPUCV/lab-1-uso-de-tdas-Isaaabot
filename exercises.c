@@ -119,7 +119,7 @@ void copia_pila(Stack* P1, Stack* P2)
    int *elemento = first(P1) ;
    int talla = get_size(P1) ;
 
-   while (talla != NULL)
+   while (talla != -1)
    {
       pushBack(P2, elemento) ;
       elemento = next(P1) ;
