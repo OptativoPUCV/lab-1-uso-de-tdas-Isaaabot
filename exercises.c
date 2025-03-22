@@ -42,20 +42,19 @@ Al finalizar retorna la lista creada.
 */
 List* crea_lista() 
 {
-   List* L = create_list() ;                      // Se crea la lista "L"
-   int *elemento ;
+   List* L = create_list() ;                     // Se crea la lista "L"
    
    for (int k = 0 ; k < 10 ; k++)
    {
       int *L ;
       
-      elemento[k] = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
+      int *elemento = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
 
-      if (elemento[k] == NULL)                   // Flag por si hay un error en la asignación de memoria
+      if (elemento == NULL)                   // Flag por si hay un error en la asignación de memoria
          exit(EXIT_FAILURE) ;                    // Significa que algo salió mal :(
 
-      (elemento[k]) = k + 1 ;                    // Se van asignando los valores del 1 al 10
-      pushBack(L, elemento) ;                    // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
+      *elemento = k + 1 ;                    // Se van asignando los valores del 1 al 10
+      pushBack(L, elemento) ;                  // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
    }
    return L ;                                    // Se retorna la lista "L"
 }

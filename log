@@ -212,3 +212,42 @@ exercises.c:93:14: error: 'L' may be used uninitialized in this function [-Werro
 cc1.exe: all warnings being treated as errors
 Compilation failed
 aef3ff9
+Sat, Mar 22, 2025 12:35:03 AM: 
+ exercises.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'crea_lista':
+exercises.c:57:16: error: passing argument 1 of 'pushBack' from incompatible pointer type [-Werror=incompatible-pointer-types]
+       pushBack(L, elemento) ;                  // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
+                ^
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:20:6: note: expected 'List * {aka struct List *}' but argument is of type 'int *'
+ void pushBack(List *L, void *dato);
+      ^~~~~~~~
+In file included from test.c:5:0:
+exercises.c: In function 'eliminaElementos':
+exercises.c:93:21: error: passing argument 1 of 'popCurrent' makes pointer from integer without a cast [-Werror=int-conversion]
+          popCurrent(*L[k]) ;
+                     ^
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:32:7: note: expected 'List * {aka struct List *}' but argument is of type 'int'
+ void *popCurrent(List *L);
+       ^~~~~~~~~~
+In file included from test.c:5:0:
+test.c: In function 'sumaLista':
+exercises.c:74:17: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       suma += *L[k] ;                      // Se va sumando cada elemento a la variable "suma"
+                 ^
+test.c: In function 'crea_lista':
+exercises.c:57:7: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       pushBack(L, elemento) ;                  // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
+       ^~~~~~~~~~~~~~~~~~~~~
+test.c: In function 'eliminaElementos':
+exercises.c:92:14: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       if (*(L[k]) == elem)
+              ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+77a0f5e
