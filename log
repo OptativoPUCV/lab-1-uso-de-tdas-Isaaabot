@@ -128,3 +128,39 @@ exercises.c:91:14: error: 'L' may be used uninitialized in this function [-Werro
 cc1.exe: all warnings being treated as errors
 Compilation failed
 dd41e0c
+Fri, Mar 21, 2025 11:08:35 PM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'crea_lista':
+exercises.c:50:12: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
+       L[k] = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
+            ^
+exercises.c:52:16: error: comparison between pointer and integer [-Werror]
+       if (L[k] == NULL)                   // Flag por si hay un error en la asignación de memoria
+                ^~
+exercises.c: In function 'eliminaElementos':
+exercises.c:92:21: error: passing argument 1 of 'popCurrent' makes pointer from integer without a cast [-Werror=int-conversion]
+          popCurrent(*L[k]) ;
+                     ^
+In file included from exercises.c:6:0,
+                 from test.c:5:
+arraylist.h:32:7: note: expected 'List * {aka struct List *}' but argument is of type 'int'
+ void *popCurrent(List *L);
+       ^~~~~~~~~~
+In file included from test.c:5:0:
+test.c: In function 'sumaLista':
+exercises.c:73:17: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       suma += *L[k] ;                      // Se va sumando cada elemento a la variable "suma"
+                 ^
+test.c: In function 'crea_lista':
+exercises.c:50:8: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       L[k] = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
+        ^
+test.c: In function 'eliminaElementos':
+exercises.c:91:14: error: 'L' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+       if (*(L[k]) == elem)
+              ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+462f113
