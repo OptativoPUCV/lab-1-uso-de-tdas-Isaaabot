@@ -40,10 +40,22 @@ Recuerda que la lista almacena punteros, por lo que
 debes reservar memoria para cada elemento que agregues.
 Al finalizar retorna la lista creada.
 */
+List* crea_lista() 
+{
+   List* L = create_list() ;              // Se crea la lista "L"
 
-List* crea_lista() {
-   List* L = create_list();
-   return L;
+   for (int k = 0 ; k < 10 ; k++)
+   {
+      int **L ;
+      L[k] = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
+
+      if (L[k] == NULL)                   // Flag por si hay un error en la asignación de memoria
+         exit(EXIT_FAILURE) ;             // Significa que algo salió mal :(
+
+      *(L[k]) = k + 1 ;                   // Se van asignando los valores del 1 al 10
+                                          // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
+   }
+   return L ;                             // Se retorna la lista "L"
 }
 
 /*
@@ -51,8 +63,16 @@ Ejercicio 2.
 Crea una función que reciba una lista de enteros (int*) y 
 retorne la suma de sus elementos.
 */
-int sumaLista(List *L) {
-   return 0;
+int sumaLista(List *L) 
+{
+   int suma = 0 ;                         // Se crea variable "suma" para poder sumar todos los elementos
+
+   for (int k = 0; k < 10; k++)
+   {  
+      int **L ;
+      suma += *L[k] ;                      // Se va sumando cada elemento a la variable "suma"
+   }
+   return suma ;                          // Se retorna la suma :)
 }
 
 /*
@@ -63,9 +83,14 @@ de la lista que sean iguales a elem.
 Asume que popCurrent luego de eliminar un elemento se
 posiciona en el elemento anterior.
 */
-
-void eliminaElementos(List*L, int elem){
-
+void eliminaElementos(List* L, int elem)
+{
+   for (int k = 0; k < 10; k++)
+   {
+      int **L ;
+      if (L[k] == elem)
+         popCurrent(L[k]) ;
+   }
 }
 
 /*
@@ -75,7 +100,11 @@ El orden de ambas pilas se debe mantener.
 Puedes usar una pila auxiliar.
 */
 
-void copia_pila(Stack* P1, Stack* P2) {
+void copia_pila(Stack* P1, Stack* P2) 
+{
+   //Stack* aux ;
+
+
 }
 
 /*
@@ -85,7 +114,10 @@ paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
 
-int parentesisBalanceados(char *cadena) {
-   return 0;
+int parentesisBalanceados(char *cadena) 
+{
+
+
+   return 0 ;
 }
 
