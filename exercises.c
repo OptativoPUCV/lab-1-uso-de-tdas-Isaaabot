@@ -46,13 +46,13 @@ List* crea_lista()
 
    for (int k = 0 ; k < 10 ; k++)
    {
-      int **L ;
+      int *L ;
       L[k] = malloc(sizeof(int)) ;        // Se reserva memoria para cada puntero
 
       if (L[k] == NULL)                   // Flag por si hay un error en la asignación de memoria
          exit(EXIT_FAILURE) ;             // Significa que algo salió mal :(
 
-      *(L[k]) = k + 1 ;                   // Se van asignando los valores del 1 al 10
+      (L[k]) = k + 1 ;                   // Se van asignando los valores del 1 al 10
                                           // Se utiliza "*" porque queremos agregar el valor en la direccion de memoria
    }
    return L ;                             // Se retorna la lista "L"
@@ -69,8 +69,8 @@ int sumaLista(List *L)
 
    for (int k = 0; k < 10; k++)
    {  
-      int **L ;
-      suma += *L[k] ;                      // Se va sumando cada elemento a la variable "suma"
+      int *L ;
+      suma += L[k] ;                      // Se va sumando cada elemento a la variable "suma"
    }
    return suma ;                          // Se retorna la suma :)
 }
@@ -87,9 +87,9 @@ void eliminaElementos(List* L, int elem)
 {
    for (int k = 0; k < 10; k++)
    {
-      int **L ;
-      if (*(L[k]) == elem)
-         popCurrent(*L[k]) ;
+      int *L ;
+      if ((L[k]) == elem)
+         popCurrent(L[k]) ;
    }
 }
 
