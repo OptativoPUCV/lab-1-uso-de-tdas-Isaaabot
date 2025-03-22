@@ -276,3 +276,17 @@ exercises.c:90:14: error: 'L' may be used uninitialized in this function [-Werro
 cc1.exe: all warnings being treated as errors
 Compilation failed
 dfb924f
+Sat, Mar 22, 2025 12:48:22 AM: 
+ exercises.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+test.c: In function 'test_suma_lista':
+test.c:100:17: error: implicit declaration of function 'sumaLista' [-Werror=implicit-function-declaration]
+     int suma2 = sumaLista(L);
+                 ^~~~~~~~~
+test.c: In function 'test_elimina_elemento':
+test.c:132:5: error: implicit declaration of function 'eliminaElementos' [-Werror=implicit-function-declaration]
+     eliminaElementos(L, elem);
+     ^~~~~~~~~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+d872519
