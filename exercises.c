@@ -88,8 +88,8 @@ void eliminaElementos(List* L, int elem)
    for (int k = 0; k < 10; k++)
    {
       int **L ;
-      if (L[k] == elem)
-         popCurrent(L[k]) ;
+      if (*(L[k]) == elem)
+         popCurrent(*L[k]) ;
    }
 }
 
