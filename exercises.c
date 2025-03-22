@@ -64,21 +64,15 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) 
 {
-   int suma = 0 ;                              // Se crea variable "suma" para poder sumar todos los elementos
+   int suma = 0 ;                                // Se crea variable "suma" para poder sumar todos los elementos
    int *elemento = first(L) ;
 
    while (elemento != NULL)
    {
-      suma += *elemento ;
+      suma += *elemento ;                        // Se va sumando cada elemento a la variable "suma"
       elemento = next(L) ;
    }
-   /*
-   for (int k = 0; k < 10; k++)
-   {  
-      suma += *L[k] ;                          // Se va sumando cada elemento a la variable "suma"
-   }
-   */
-   return suma ;                               // Se retorna la suma :)
+   return suma ;                                 // Se retorna la suma :)
 }
 
 /*
@@ -91,6 +85,17 @@ posiciona en el elemento anterior.
 */
 void eliminaElementos(List* L, int elem)
 {
+   /*
+   int *elemento = first(L) ;
+
+   while (elemento != NULL)
+   {
+      if (elemento == elem)  
+         popCurrent() ;
+      
+      elemento = next(L) ;
+   }
+   */
    /*
    for (int k = 0; k < 10; k++)
    {
@@ -110,9 +115,17 @@ Puedes usar una pila auxiliar.
 
 void copia_pila(Stack* P1, Stack* P2) 
 {
-   //Stack* aux ;
+   //Stack* aux = create_stack() ;
+   int *elemento = first(P1) ;
+   int talla = get_size(P1) ;
 
+   while (talla != NULL)
+   {
+      pushBack(P2, elemento) ;
+      elemento = next(P1) ;
 
+      talla-- ;
+   }
 }
 
 /*
