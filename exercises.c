@@ -74,6 +74,7 @@ int sumaLista(List *L)
    }
    return suma ;                          // Se retorna la suma :)
    */
+   return 0 ;
 }
 
 /*
