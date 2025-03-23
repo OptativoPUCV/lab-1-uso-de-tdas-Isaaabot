@@ -1089,3 +1089,29 @@ Sun, Mar 23, 2025  3:35:46 AM:
  tests:  4|1
 total_score: 50/70
 cb8beb8
+Sun, Mar 23, 2025  3:45:08 AM: 
+ exercises.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:163:26: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                          ^~
+exercises.c:163:47: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                                               ^~
+exercises.c:163:70: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                                                                      ^~
+exercises.c:163:91: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                                                                                           ^~
+exercises.c:163:114: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                                                                                                                  ^~
+exercises.c:163:135: error: comparison between pointer and integer [-Werror]
+          if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+                                                                                                                                       ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+a961edd

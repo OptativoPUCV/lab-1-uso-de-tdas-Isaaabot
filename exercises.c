@@ -137,7 +137,9 @@ contiene inicialmente.
 int parentesisBalanceados(char *cadena)
 {
    Stack *pila_apertura = create_stack() ;
+   Stack *pila_cierre = create_stack() ;
    char caracter ;
+   int talla = 0 ;
 
    for (int k = 0; cadena[k] ; k++)
    {
@@ -149,15 +151,21 @@ int parentesisBalanceados(char *cadena)
       {
          if (pila_apertura == NULL)
             return 0 ;
-         
-         char *apertura = top(pila_apertura) ;
-         apertura = pop(pila_apertura) ;
 
-         if (((*apertura) == '(' && caracter != ')') || ((*apertura) == '[' && caracter != ']') || ((*apertura) == '{' && caracter != '}'))
+         push(pila_cierre, &caracter) ;
+
+         char *apertura_a = top(pila_apertura) ;
+         char *apertura_c = top(pila_cierre) ;
+         apertura_a = pop(pila_apertura) ;
+         apertura_c = pop(pila_cierre) ;
+
+         //if (((*apertura_a) == '(' && (*apertura_c) != ')') || ((*apertura_a) == '[' && (*apertura_c) != ']') || ((*apertura_a) == '{' && (*apertura_c) != '}'))
+         if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
             return 0 ;
       }
+      talla++ ;
    }
-   if (pila_apertura != NULL)
+   if (talla % 2 != 0)
       return 0 ;
    
    return 1 ;
