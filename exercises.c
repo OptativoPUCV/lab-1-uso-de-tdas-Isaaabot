@@ -137,34 +137,23 @@ contiene inicialmente.
 int parentesisBalanceados(char *cadena) 
 {
    Stack *pila_apertura = create_stack() ;
-   Stack *pila_cierre = create_stack() ;
    char caracter ;
-   int talla = 0 ;
+   //int talla = 0 ;
 
    for (int k = 0; cadena[k] ; k++)
    {
       caracter = cadena[k] ;
-      pushBack(pila_cierre, &caracter) ;
-      talla++ ;
-   }
 
-   if (talla % 2 != 0)
-      return 0 ;
-   
-   char *elemento = first(pila_cierre) ;
+      if (caracter == '(' || caracter == '[' || caracter == '{')
+         push(pila_apertura, caracter) ;   
+      else
+         if (pila_apertura == NULL)
+            return 0 ;  
+      
+      char apertura = pop(pila_apertura) ;
 
-   for (int k = 0 ; k < (talla / 2) ; k++)
-   {
-      pushFront(pila_apertura, elemento) ;
-      elemento = next(pila_cierre) ;
-   }  
-   
-   for (int k = 0 ; k < (talla / 2) ; k++)
-   {
-      char *apertura = pop(pila_apertura) ;
-      char *cierre = pop(pila_cierre) ;
-
-      if (((*apertura) == '(' && (*cierre) != ')') || ((*apertura) == '[' && (*cierre) != ']') || ((*apertura) == '{' && (*cierre) != '}'))
+      //if (((*apertura) == '(' && (*cierre) != ')') || ((*apertura) == '[' && (*cierre) != ']') || ((*apertura) == '{' && (*cierre) != '}'))
+      if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
          return 0 ;
    }
    return 1 ;
