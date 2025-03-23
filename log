@@ -842,3 +842,29 @@ exercises.c:168:24: error: initialization makes integer from pointer without a c
 cc1.exe: all warnings being treated as errors
 Compilation failed
 fda4110
+Sun, Mar 23, 2025  1:38:38 AM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:170:24: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                        ^~
+exercises.c:170:41: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                                         ^~
+exercises.c:170:62: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                                                              ^~
+exercises.c:170:79: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                                                                               ^~
+exercises.c:170:100: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                                                                                                    ^~
+exercises.c:170:117: error: comparison between pointer and integer [-Werror]
+          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+                                                                                                                     ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+658326a
