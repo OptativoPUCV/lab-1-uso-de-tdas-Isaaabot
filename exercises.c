@@ -137,20 +137,21 @@ contiene inicialmente.
 int parentesisBalanceados(char *cadena) 
 {
    Stack *pila_apertura = create_stack() ;
+   Stack *pila_cierre = create_stack() ;
    char caracter ;
    int talla = 0 ;
    //int cont = 0 ;
 
-   for (int k = 0; k < cadena[k] ; k++)
+   for (int k = 0; cadena[k] ; k++)
    {
       caracter = cadena[k] ;
-      pushBack(pila_apertura, &caracter) ;
+      pushBack(pila_cierre, &caracter) ;
       talla++ ;
    }
 
    if (talla % 2 == 0)
    {
-      /*
+      //-------------------------
       char *elemento = first(pila_cierre) ;
 
       for (int k = 0 ; k < (talla / 2) ; k++)
@@ -158,40 +159,21 @@ int parentesisBalanceados(char *cadena)
          pushFront(pila_apertura, elemento) ;
          elemento = next(pila_cierre) ;
       }  
-         */
+      //---------------------
       for (int k = 0 ; k < (talla / 2) ; k++)
       {
-         char *apertura = (char*) pop(pila_apertura) ;
-         char cierre = cadena[k] ;
+         //char *apertura = (char*) pop(pila_apertura) ;
+         //char cierre = cadena[k] ;
+         char apertura = top(pila_apertura) ;
+         char cierre = top(pila_cierre) ;
 
-         if ((apertura[0] == '(' && cierre != ')') || (apertura[0] == '[' && cierre != ']') || (apertura[0] == '{' && cierre != '}'))
+         if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
             return 0 ;
+
+         pop(pila_apertura) ;
+         pop(pila_cierre) ;
       }
       return 1 ;
    }
-
-   /*
-      if ((top(pila_apertura) == '(') && (top(pila_cierre) == ')')) 
-      {        
-         pop(pila_apertura) ;
-         pop(pila_cierre) ;         
-         //cont++ ;
-      }
-      else if ((top(pila_apertura) == '[') && (top(pila_cierre) == ']'))
-      {   
-         pop(pila_apertura) ;
-         pop(pila_cierre) ;               
-         //cont++ ;
-      }
-      else if ((top(pila_apertura) == '{') && (top(pila_cierre) == '}'))
-      {                 
-         pop(pila_apertura) ;
-         pop(pila_cierre) ;               
-         //cont++ ;
-      }
-      else
-         return 0 ;
-   }  
-   */
    return 0 ;
 }

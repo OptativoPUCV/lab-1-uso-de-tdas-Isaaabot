@@ -742,3 +742,17 @@ Sun, Mar 23, 2025  1:21:28 AM:
  tests:  7|1
 total_score: 60/70
 5094ed1
+Sun, Mar 23, 2025  1:32:24 AM: 
+ exercises.c | 40 +++++++++++-----------------------------
+ 1 file changed, 11 insertions(+), 29 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:167:26: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char apertura = top(pila_apertura) ;
+                          ^~~
+exercises.c:168:24: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char cierre = top(pila_cierre) ;
+                        ^~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+286eb8a
