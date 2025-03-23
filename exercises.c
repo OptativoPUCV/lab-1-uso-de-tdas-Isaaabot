@@ -136,22 +136,64 @@ contiene inicialmente.
 */
 int parentesisBalanceados(char *cadena) 
 {
-   //Stack *pila = crea_lista() ;
-   char *elemento = first(cadena) ;
-   int talla = get_size(cadena) ;
+   Stack *pila_apertura = crea_lista() ;
+   Stack *pila_cierre = crea_lista() ;
+   char caracter ;
    int cont = 0 ;
+   
+   for (int k = 0; k < cadena[k] ; k++)
+   {
+      caracter = cadena[k] ;
 
+      if (caracter == '(' || caracter == '[' || caracter == '{')
+         pushBack(pila_apertura, caracter) ;
+      else if (pila_apertura == NULL)
+         return 0 ;
+      else
+         pushFront(pila_cierre, caracter) ;
+   }
+   int talla_a = get_size(pila_apertura) ;
+   int talla_c = get_size(pila_cierre) ;
+   char *elemento_a = first(pila_apertura) ;
+   char *elemento_c = first(pila_cierre) ;
+
+   if (talla_a != talla_c)
+      return 0 ;
+   else
+   {
+      while (elemento_a != NULL)
+      {
+         if (elemento_a == '(' && elemento_c == ')')                  
+            cont++ ;
+         else if (elemento_a == '[' && elemento_c == ']')
+            cont++ ;
+         else if (elemento_a == '{' && elemento_c == '}')
+            cont++ ;
+         else
+            return 0 ;
+                                 
+         elemento_a = next(pila_apertura) ;
+         elemento_c = next(pila_cierre) ;
+      }
+   }
+
+   if (cont == talla_a)
+         return 1 ;
+   
+   return 0 ;
+
+   /*
    if (talla % 2 == 0)
    {
       int mitad = talla / 2 ;
-      /*
+      
                   ([{}])
          elemento          cadena
             ([{          }])
             {              ) 
             [              ]
             (              }
-      */
+      
                                                                         
       for (int k = (talla - 1) ; k >= mitad ; k--)                                 
       {                                                            
@@ -171,5 +213,7 @@ int parentesisBalanceados(char *cadena)
          return 1 ; // balanceados
    }
    return 0 ; // no balanceados
+   
+   */
 }
 
