@@ -139,13 +139,18 @@ int parentesisBalanceados(char *cadena)
 {
    Stack *pila_apertura = create_stack() ;
    Stack *pila_cierre = create_stack() ;
-   char caracter ;
+   //char caracter ;
    int talla = 0 ;
 
    for (int k = 0; cadena[k] ; k++)
    {
-      caracter = cadena[k] ;
-      push(pila_apertura, &caracter) ;
+      char *caracter = (char *) malloc(sizeof(char)) ;
+      
+      if (caracter == NULL)
+         return 0 ;
+      
+      *caracter = cadena[k] ;
+      push(pila_apertura, caracter) ;
       talla++ ;
    }
 
@@ -159,7 +164,7 @@ int parentesisBalanceados(char *cadena)
       pop(pila_apertura) ;
    } 
 
-   for (int k = 0 ; k < (talla / 2) ; k++)
+   while (pila_apertura != NULL)
    {
       char *apertura_a = top(pila_apertura) ;
       char *apertura_c = top(pila_cierre) ;
@@ -169,7 +174,15 @@ int parentesisBalanceados(char *cadena)
       if (((*apertura_a) == '(' && (*apertura_c) != ')') || 
          ((*apertura_a) == '[' && (*apertura_c) != ']') || 
          ((*apertura_a) == '{' && (*apertura_c) != '}'))
+      { 
+         free(pila_apertura) ;
+         free(pila_cierre) ;
          return 0 ;
+      }
    }
+   /*
+   if (pila_apertura != NULL || pila_cierre != NULL)
+      return 0 ;
+   */
    return 1 ;
 }
