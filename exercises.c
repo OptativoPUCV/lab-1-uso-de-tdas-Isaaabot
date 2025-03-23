@@ -134,6 +134,45 @@ aunque todos los tipos de paréntesis se abren y cierran, el orden no es el
 correcto: el corchete se cierra antes de cerrar el paréntesis que lo 
 contiene inicialmente.
 */
+
+int parentesisBalanceados(char *cadena)
+{
+   Stack *pila_apertura = create_stack() ;
+   Stack *pila_cierre = create_stack() ;
+   char caracter ;
+   int talla = 0 ;
+
+   for (int k = 0; cadena[k] ; k++)
+   {
+      caracter = cadena[k] ;
+      push(pila_apertura, &caracter) ;
+      talla++ ;
+   }
+
+   if (talla % 2 != 0)
+      return 0 ;
+
+   for (int k = 0 ; k <= (talla / 2) ; k++)
+   {
+      char *elemento = top(pila_apertura) ;
+      push(pila_cierre, elemento) ;
+      pop(pila_apertura) ;
+   } 
+
+   for (int k = 0 ; k <= (talla / 2) ; k++)
+   {
+      char *apertura_a = top(pila_apertura) ;
+      char *apertura_c = top(pila_cierre) ;
+      apertura_a = pop(pila_apertura) ;
+      apertura_c = pop(pila_cierre) ;
+
+      if (((*apertura_a) == '(' && (*apertura_c) != ')') || ((*apertura_a) == '[' && (*apertura_c) != ']') || ((*apertura_a) == '{' && (*apertura_c) != '}'))
+         return 0 ;
+   }
+   return 1 ;
+}
+
+/*
 int parentesisBalanceados(char *cadena)
 {
    Stack *pila_apertura = create_stack() ;
@@ -170,6 +209,7 @@ int parentesisBalanceados(char *cadena)
    
    return 1 ;
 }
+*/
 
 /*
 int parentesisBalanceados(char *cadena)
