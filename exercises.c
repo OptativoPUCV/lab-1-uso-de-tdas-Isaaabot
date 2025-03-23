@@ -181,9 +181,6 @@ int parentesisBalanceados(char *cadena)
       }
    }
    
-   if (pila_apertura != NULL || pila_cierre != NULL)
-      return 0 ;
-   
    free(pila_apertura) ;
    free(pila_cierre) ;
    return 1 ;
