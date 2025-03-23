@@ -159,8 +159,8 @@ int parentesisBalanceados(char *cadena)
          apertura_a = pop(pila_apertura) ;
          apertura_c = pop(pila_cierre) ;
 
-         //if (((*apertura_a) == '(' && (*apertura_c) != ')') || ((*apertura_a) == '[' && (*apertura_c) != ']') || ((*apertura_a) == '{' && (*apertura_c) != '}'))
-         if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
+         if (((*apertura_a) == '(' && (*apertura_c) != ')') || ((*apertura_a) == '[' && (*apertura_c) != ']') || ((*apertura_a) == '{' && (*apertura_c) != '}'))
+         //if ((apertura_a == '(' && apertura_c != ')') || (apertura_a == '[' && apertura_c != ']') || (apertura_a == '{' && apertura_c != '}'))
             return 0 ;
       }
       talla++ ;
