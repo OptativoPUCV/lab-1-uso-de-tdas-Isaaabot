@@ -1013,3 +1013,20 @@ exercises.c:153:23: error: initialization makes integer from pointer without a c
 cc1.exe: all warnings being treated as errors
 Compilation failed
 5d226c3
+Sun, Mar 23, 2025  2:42:52 AM: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:156:21: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                     ^~
+exercises.c:156:61: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                                                             ^~
+exercises.c:156:101: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                                                                                                     ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+ba621d0
