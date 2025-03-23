@@ -1208,3 +1208,17 @@ exercises.c:142:9: error: unused variable 'caracter' [-Werror=unused-variable]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 89e3645
+Sun, Mar 23, 2025  5:06:45 PM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:147:17: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
+       *caracter = malloc(sizeof(char)) ;
+                 ^
+exercises.c:152:16: error: assignment makes pointer from integer without a cast [-Werror=int-conversion]
+       caracter = cadena[k] ;
+                ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+c3032bb
