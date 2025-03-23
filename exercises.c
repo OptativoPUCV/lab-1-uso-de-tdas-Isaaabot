@@ -180,9 +180,9 @@ int parentesisBalanceados(char *cadena)
          return 0 ;
       }
    }
-   /*
+   
    if (pila_apertura != NULL || pila_cierre != NULL)
       return 0 ;
-   */
+   
    return 1 ;
 }
