@@ -1191,3 +1191,20 @@ exercises.c:149:20: error: comparison between pointer and integer [-Werror]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 05af388
+Sun, Mar 23, 2025  5:05:16 PM: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:147:23: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       char caracter = malloc(sizeof(char)) ;
+                       ^~~~~~
+exercises.c:149:20: error: comparison between pointer and integer [-Werror]
+       if (caracter == NULL)
+                    ^~
+exercises.c:142:9: error: unused variable 'caracter' [-Werror=unused-variable]
+    char caracter ;
+         ^~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+89e3645
