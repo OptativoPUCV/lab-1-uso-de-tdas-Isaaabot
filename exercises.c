@@ -144,7 +144,7 @@ int parentesisBalanceados(char *cadena)
    for (int k = 0; k < cadena[k] ; k++)
    {
       caracter = cadena[k] ;
-      pushBack(pila_apertura, caracter) ;
+      pushBack(pila_apertura, &caracter) ;
       talla++ ;
    }
 
@@ -161,7 +161,7 @@ int parentesisBalanceados(char *cadena)
          */
       for (int k = 0 ; k < (talla / 2) ; k++)
       {
-         char apertura = pop(pila_apertura) ;
+         char *apertura = (char*) pop(pila_apertura) ;
          char cierre = cadena[k] ;
 
          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
