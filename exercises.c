@@ -136,8 +136,8 @@ contiene inicialmente.
 */
 int parentesisBalanceados(char *cadena) 
 {
-   Stack *pila_apertura = crea_lista() ;
-   Stack *pila_cierre = crea_lista() ;
+   Stack *pila_apertura = create_stack() ;
+   Stack *pila_cierre = create_stack() ;
    //char *caracter ;
    int talla = 0 ;
    //int cont = 0 ;
