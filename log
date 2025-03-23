@@ -796,3 +796,17 @@ exercises.c:168:24: error: initialization makes integer from pointer without a c
 cc1.exe: all warnings being treated as errors
 Compilation failed
 70dbbf5
+Sun, Mar 23, 2025  1:35:39 AM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:167:26: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char apertura = (char *) first(pila_apertura) ;
+                          ^
+exercises.c:168:24: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char cierre = (char *) first(pila_cierre) ;
+                        ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+fd5f54b
