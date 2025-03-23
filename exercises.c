@@ -163,8 +163,6 @@ int parentesisBalanceados(char *cadena)
    {
       char *apertura_a = top(pila_apertura) ;
       char *apertura_c = top(pila_cierre) ;
-      apertura_a = pop(pila_apertura) ;
-      apertura_c = pop(pila_cierre) ;
 
       if (((*apertura_a) == '(' && (*apertura_c) != ')') || 
          ((*apertura_a) == '[' && (*apertura_c) != ']') || 
@@ -172,6 +170,9 @@ int parentesisBalanceados(char *cadena)
       {
          return 0 ;
       }
+
+      apertura_a = pop(pila_apertura) ;
+      apertura_c = pop(pila_cierre) ;
    }
    return 1 ;
 }
