@@ -144,12 +144,12 @@ int parentesisBalanceados(char *cadena)
 
    for (int k = 0; cadena[k] ; k++)
    {
-      *caracter = malloc(sizeof(char)) ;
+      *caracter = (char *) malloc(sizeof(char)) ;
       
       if (caracter == NULL)
          return 0 ;
       
-      caracter = cadena[k] ;
+      *caracter = cadena[k] ;
       push(pila_apertura, &caracter) ;
       talla++ ;
    }
