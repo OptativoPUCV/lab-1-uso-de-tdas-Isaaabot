@@ -138,7 +138,7 @@ int parentesisBalanceados(char *cadena)
 {
    Stack *pila_apertura = crea_lista() ;
    Stack *pila_cierre = crea_lista() ;
-   char caracter ;
+   char *caracter ;
    int talla = 0 ;
    //int cont = 0 ;
 
