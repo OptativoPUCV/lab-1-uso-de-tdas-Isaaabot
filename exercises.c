@@ -154,7 +154,10 @@ int parentesisBalanceados(char *cadena)
    }
 
    if (talla % 2 != 0)
+   {  
+      free(pila_apertura) ;
       return 0 ;
+   }
 
    for (int k = 0 ; k < (talla / 2) ; k++)
    {
