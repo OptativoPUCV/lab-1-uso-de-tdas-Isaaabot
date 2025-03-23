@@ -1065,3 +1065,9 @@ exercises.c:158:20: error: assignment makes integer from pointer without a cast 
 cc1.exe: all warnings being treated as errors
 Compilation failed
 666126b
+Sun, Mar 23, 2025  3:25:57 AM: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  4|1
+total_score: 50/70
+b375604
