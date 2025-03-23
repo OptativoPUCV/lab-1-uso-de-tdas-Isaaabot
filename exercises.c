@@ -172,3 +172,4 @@ int parentesisBalanceados(char *cadena)
    free(pila_cierre) ;                                         // Libero la memoria de la pila_cierre
    return 1 ;                                                  // Retorno balanceado
 }
+// Disculpen, se me enredaban las ideas y lo comenté casi todo para no perderme, espero que se entienda :(
