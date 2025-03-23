@@ -1163,3 +1163,17 @@ Sun, Mar 23, 2025  4:58:28 PM:
  1 file changed, 2 insertions(+), 2 deletions(-)
  tests:  0|0
 6d84b26
+Sun, Mar 23, 2025  5:01:45 PM: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:147:23: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       char caracter = (char *) malloc(sizeof(char)) ;
+                       ^
+exercises.c:149:20: error: comparison between pointer and integer [-Werror]
+       if (caracter == NULL)
+                    ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+ba22636
