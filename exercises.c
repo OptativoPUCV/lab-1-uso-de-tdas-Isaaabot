@@ -137,20 +137,20 @@ contiene inicialmente.
 int parentesisBalanceados(char *cadena) 
 {
    Stack *pila_apertura = create_stack() ;
-   Stack *pila_cierre = create_stack() ;
-   //char *caracter ;
+   char caracter ;
    int talla = 0 ;
    //int cont = 0 ;
 
    for (int k = 0; k < cadena[k] ; k++)
    {
-      char *caracter = cadena[k] ;
-      pushBack(pila_cierre, caracter) ;
+      caracter = cadena[k] ;
+      pushBack(pila_apertura, caracter) ;
       talla++ ;
    }
 
    if (talla % 2 == 0)
    {
+      /*
       char *elemento = first(pila_cierre) ;
 
       for (int k = 0 ; k < (talla / 2) ; k++)
@@ -158,10 +158,19 @@ int parentesisBalanceados(char *cadena)
          pushFront(pila_apertura, elemento) ;
          elemento = next(pila_cierre) ;
       }  
+         */
+      for (int k = 0 ; k < (talla / 2) ; k++)
+      {
+         char apertura = pop(pila_apertura) ;
+         char cierre = cadena[k] ;
+
+         if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
+            return 0 ;
+      }
+      return 1 ;
    }
 
-   for (int k = 0 ; k < (talla / 2) ; k++)
-   {
+   /*
       if ((top(pila_apertura) == '(') && (top(pila_cierre) == ')')) 
       {        
          pop(pila_apertura) ;
@@ -183,9 +192,6 @@ int parentesisBalanceados(char *cadena)
       else
          return 0 ;
    }  
-   /*
-   if (cont == (talla / 2))
-      return 1 ;
    */
-   //return 0 ;
+   return 0 ;
 }
