@@ -164,14 +164,14 @@ int parentesisBalanceados(char *cadena)
       {
          //char *apertura = (char*) pop(pila_apertura) ;
          //char cierre = cadena[k] ;
-         char *apertura = top(pila_apertura) ;
-         char *cierre = top(pila_cierre) ;
+         char apertura = first(pila_apertura) ;
+         char cierre = first(pila_cierre) ;
 
          if ((apertura == '(' && cierre != ')') || (apertura == '[' && cierre != ']') || (apertura == '{' && cierre != '}'))
             return 0 ;
 
-         pop(pila_apertura) ;
-         pop(pila_cierre) ;
+         next(pila_apertura) ;
+         next(pila_cierre) ;
       }
       return 1 ;
    }

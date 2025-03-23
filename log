@@ -782,3 +782,17 @@ exercises.c:170:117: error: comparison between pointer and integer [-Werror]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 bd97ba7
+Sun, Mar 23, 2025  1:34:11 AM: 
+ exercises.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:167:26: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char apertura = first(pila_apertura) ;
+                          ^~~~~
+exercises.c:168:24: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+          char cierre = first(pila_cierre) ;
+                        ^~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+70dbbf5
