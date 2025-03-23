@@ -19,7 +19,6 @@ void imprime_lista(List *L) {
       dato = (int*)next(L);
    }
    printf("]\n");
-
 }
 
 //Ojo que la pila se vacía al imprimir y se imprime en orden inverso
@@ -85,14 +84,14 @@ posiciona en el elemento anterior.
 */
 void eliminaElementos(List* L, int elem)
 {
-   int *elemento = first(L) ;
+   int *elemento = first(L) ;                    // Se asigna primer valor de la lista a "elemento"
 
    while (elemento != NULL)
    {
-      if (*elemento == elem)  
-         popCurrent(L) ;
+      if (*elemento == elem)                     // Se compara si el valor de elemento es igual a "elem"  
+         popCurrent(L) ;                         // Se elimina en caso de que se cumpla la condición 
       
-      elemento = next(L) ;
+      elemento = next(L) ;                       // Pasa al siguiente elemento
    }
 }
 
@@ -104,15 +103,15 @@ Puedes usar una pila auxiliar.
 */
 void copia_pila(Stack* P1, Stack* P2) 
 {
-   int *elemento = first(P1) ;
-   int talla = get_size(P1) ;
+   int *elemento = first(P1) ;                   // Le doy a elemento la primera posicion de "P1"
+   int talla = get_size(P1) ;                    // Obtengo la talla de la pila
 
-   while (talla != -1)                    
+   while (talla > -1)                    
    {                                      
-      pushBack(P2, elemento) ;            
-      elemento = next(P1) ;               
+      pushBack(P2, elemento) ;                   // Utilizo "pushBack" para ir traspasando los elementos a "P2"
+      elemento = next(P1) ;                      // Pasa al siguiente elemento de P1
 
-      talla-- ;
+      talla-- ;                                  // La talla disminuye en 1 para que el bucle cumpla su condición y termine
    }
 }
 
@@ -121,18 +120,6 @@ Ejercicio 5.
 La función verifica si la cadena de entrada tiene sus 
 paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
-
-**Paréntesis balanceados** se refiere a una secuencia en la que cada tipo 
-de paréntesis abierto (ya sean paréntesis redondos `()`, corchetes `[]`, o 
-llaves `{}`) se cierra en el orden inverso al que se abrió. Esto asegura que 
-todas las aperturas tienen su correspondiente cierre en el orden correcto. 
-  
-Por ejemplo, la secuencia `([{}])` está balanceada porque cada paréntesis 
-que se abre se cierra adecuadamente en reversa a su orden de apertura. 
-  En contraste, `([)]` es un ejemplo de paréntesis desbalanceados, ya que 
-aunque todos los tipos de paréntesis se abren y cierran, el orden no es el 
-correcto: el corchete se cierra antes de cerrar el paréntesis que lo 
-contiene inicialmente.
 */
 
 int parentesisBalanceados(char *cadena)
