@@ -138,13 +138,13 @@ int parentesisBalanceados(char *cadena)
 {
    Stack *pila_apertura = crea_lista() ;
    Stack *pila_cierre = crea_lista() ;
-   char *caracter ;
+   //char *caracter ;
    int talla = 0 ;
    //int cont = 0 ;
 
    for (int k = 0; k < cadena[k] ; k++)
    {
-      caracter = cadena[k] ;
+      char *caracter = cadena[k] ;
       pushBack(pila_cierre, caracter) ;
       talla++ ;
    }

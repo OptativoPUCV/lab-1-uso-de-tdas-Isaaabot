@@ -521,3 +521,35 @@ exercises.c:191:1: error: control reaches end of non-void function [-Werror=retu
 cc1.exe: all warnings being treated as errors
 Compilation failed
 46030ae
+Sun, Mar 23, 2025 12:33:28 AM: 
+ exercises.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:147:24: error: initialization makes pointer from integer without a cast [-Werror=int-conversion]
+       char *caracter = cadena[k] ;
+                        ^~~~~~
+exercises.c:165:30: error: comparison between pointer and integer [-Werror]
+       if (top(pila_apertura) == '(' && top(pila_cierre) == ')')
+                              ^~
+exercises.c:165:57: error: comparison between pointer and integer [-Werror]
+       if (top(pila_apertura) == '(' && top(pila_cierre) == ')')
+                                                         ^~
+exercises.c:171:35: error: comparison between pointer and integer [-Werror]
+       else if (top(pila_apertura) == '[' && top(pila_cierre) == ']')
+                                   ^~
+exercises.c:171:62: error: comparison between pointer and integer [-Werror]
+       else if (top(pila_apertura) == '[' && top(pila_cierre) == ']')
+                                                              ^~
+exercises.c:177:35: error: comparison between pointer and integer [-Werror]
+       else if (top(pila_apertura) == '{' && top(pila_cierre) == '}')
+                                   ^~
+exercises.c:177:62: error: comparison between pointer and integer [-Werror]
+       else if (top(pila_apertura) == '{' && top(pila_cierre) == '}')
+                                                              ^~
+exercises.c:191:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+e22b530
