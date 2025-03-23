@@ -152,14 +152,14 @@ int parentesisBalanceados(char *cadena)
    if (talla % 2 != 0)
       return 0 ;
 
-   for (int k = 0 ; k <= (talla / 2) ; k++)
+   for (int k = 0 ; k < (talla / 2) ; k++)
    {
       char *elemento = top(pila_apertura) ;
       push(pila_cierre, elemento) ;
       pop(pila_apertura) ;
    } 
 
-   for (int k = 0 ; k <= (talla / 2) ; k++)
+   for (int k = 0 ; k < (talla / 2) ; k++)
    {
       char *apertura_a = top(pila_apertura) ;
       char *apertura_c = top(pila_cierre) ;
