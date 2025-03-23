@@ -41,19 +41,19 @@ Al finalizar retorna la lista creada.
 */
 List* crea_lista() 
 {
-   List* L = create_list() ;                     // Se crea la lista "L"
+   List* L = create_list() ;                                   // Se crea la lista "L"
    
    for (int k = 0 ; k < 10 ; k++)
    {
-      int *elemento = malloc(sizeof(int)) ;      // Se reserva memoria para cada puntero
+      int *elemento = malloc(sizeof(int)) ;                    // Se reserva memoria para cada puntero
 
-      if (elemento == NULL)                      // Flag por si hay un error en la asignación de memoria
-         exit(EXIT_FAILURE) ;                    // Significa que algo salió mal :(
+      if (elemento == NULL)                                    // Flag por si hay un error en la asignación de memoria
+         exit(EXIT_FAILURE) ;                                  // Significa que algo salió mal :(
 
-      *elemento = k + 1 ;                        // Asigna valores del 1-10, "*" para agregar el valor en la direccion de memoria
-      pushBack(L, elemento) ;             
+      *elemento = k + 1 ;                                      // Asigna valores del 1-10, "*" para agregar el valor en la direccion de memoria
+      pushBack(L, elemento) ;                                  // Utilizo "pushBack" para ir traspasando los elementos a "L"
    }
-   return L ;                                    // Se retorna la lista "L"
+   return L ;                                                  // Se retorna la lista "L"
 }
 
 /*
@@ -63,15 +63,15 @@ retorne la suma de sus elementos.
 */
 int sumaLista(List *L) 
 {
-   int suma = 0 ;                                // Se crea variable "suma" para poder sumar todos los elementos
-   int *elemento = first(L) ;
+   int suma = 0 ;                                              // Se crea variable "suma" para poder sumar todos los elementos
+   int *elemento = first(L) ;                                  // Se asigna primer valor de la lista a "elemento"
 
    while (elemento != NULL)
    {
-      suma += *elemento ;                        // Se va sumando cada elemento a la variable "suma"
-      elemento = next(L) ;
+      suma += *elemento ;                                      // Se va sumando cada elemento a la variable "suma"
+      elemento = next(L) ;                                     // Pasa al siguiente elemento
    }
-   return suma ;                                 // Se retorna la suma :)
+   return suma ;                                               // Se retorna la suma :)
 }
 
 /*
@@ -84,14 +84,14 @@ posiciona en el elemento anterior.
 */
 void eliminaElementos(List* L, int elem)
 {
-   int *elemento = first(L) ;                    // Se asigna primer valor de la lista a "elemento"
+   int *elemento = first(L) ;                                  // Se asigna primer valor de la lista a "elemento"
 
    while (elemento != NULL)
    {
-      if (*elemento == elem)                     // Se compara si el valor de elemento es igual a "elem"  
-         popCurrent(L) ;                         // Se elimina en caso de que se cumpla la condición 
+      if (*elemento == elem)                                   // Se compara si el valor de elemento es igual a "elem"  
+         popCurrent(L) ;                                       // Se elimina en caso de que se cumpla la condición 
       
-      elemento = next(L) ;                       // Pasa al siguiente elemento
+      elemento = next(L) ;                                     // Pasa al siguiente elemento
    }
 }
 
@@ -103,15 +103,15 @@ Puedes usar una pila auxiliar.
 */
 void copia_pila(Stack* P1, Stack* P2) 
 {
-   int *elemento = first(P1) ;                   // Le doy a elemento la primera posicion de "P1"
-   int talla = get_size(P1) ;                    // Obtengo la talla de la pila
+   int *elemento = first(P1) ;                                 // Le doy a elemento la primera posicion de "P1"
+   int talla = get_size(P1) ;                                  // Obtengo la talla de la pila
 
    while (talla > -1)                    
    {                                      
-      pushBack(P2, elemento) ;                   // Utilizo "pushBack" para ir traspasando los elementos a "P2"
-      elemento = next(P1) ;                      // Pasa al siguiente elemento de P1
+      pushBack(P2, elemento) ;                                 // Utilizo "pushBack" para ir traspasando los elementos a "P2"
+      elemento = next(P1) ;                                    // Pasa al siguiente elemento de P1
 
-      talla-- ;                                  // La talla disminuye en 1 para que el bucle cumpla su condición y termine
+      talla-- ;                                                // La talla disminuye en 1
    }
 }
 
@@ -121,55 +121,54 @@ La función verifica si la cadena de entrada tiene sus
 paraéntesis balanceados. Retorna 1 si están balanceados,
 0 en caso contrario.
 */
-
 int parentesisBalanceados(char *cadena)
 {
-   Stack *pila_apertura = create_stack() ;
-   Stack *pila_cierre = create_stack() ;
+   Stack *pila_apertura = create_stack() ;                     // Se crea "pila_apertura"
+   Stack *pila_cierre = create_stack() ;                       // Se crea "pila_cierre"
    int talla = 0 ;
 
    for (int k = 0; cadena[k] ; k++)
    {
-      char *caracter = (char *) malloc(sizeof(char)) ;
+      char *caracter = (char *) malloc(sizeof(char)) ;         // Reservo memoria con malloc para el caracter
       
-      if (caracter == NULL)
-         return 0 ;
+      if (caracter == NULL)                                    // Flag por si hay un error en la asignación de memoria   
+         exit(EXIT_FAILURE) ;                                  // Significa que algo salió mal :(
       
-      *caracter = cadena[k] ;
-      push(pila_apertura, &caracter) ;
-      talla++ ;
+      *caracter = cadena[k] ;                                  // Le doy el valor de "cadena[k]" a "caracter"
+      push(pila_apertura, caracter) ;                          // Utilizo "push" para ir traspasando los elementos a "pila_apertura"
+      talla++ ;                                                // Aumento en 1 la talla
    }
 
-   if (talla % 2 != 0)
+   if (talla % 2 != 0)                                         // Si la talla es impar quiere decir que no está balanceado
    {  
-      free(pila_apertura) ;
-      return 0 ;
+      free(pila_apertura) ;                                    // Libero la memoria de la pila_apertura
+      return 0 ;                                               // Retorno no balanceado
    }
 
-   for (int k = 0 ; k < (talla / 2) ; k++)
+   for (int k = 0 ; k < (talla / 2) ; k++)                     // Quiero utilizar solo la mitad de la cadena
    {
-      char *elemento = top(pila_apertura) ;
-      push(pila_cierre, elemento) ;
-      pop(pila_apertura) ;
+      char *elemento = top(pila_apertura) ;                    // Con "top" se le asigna el valor a "elemento"
+      push(pila_cierre, elemento) ;                            // Utilizo "push" para ir traspasando los elementos a "pila_cierre"
+      pop(pila_apertura) ;                                     // Con "pop" borro aquel elemento de pila_apertura
    } 
 
-   for (int k = 0 ; k < (talla / 2) ; k++)
+   for (int k = 0 ; k < (talla / 2) ; k++)                     // Quiero utilizar solo la mitad de la cadena
    {
-      char *apertura_a = top(pila_apertura) ;
-      char *apertura_c = top(pila_cierre) ;
-      pop(pila_apertura) ;
-      pop(pila_cierre) ;
+      char *apertura_a = top(pila_apertura) ;                  // Con "top" se le asigna el valor a "apertura_a"
+      char *apertura_c = top(pila_cierre) ;                    // Con "top" se le asigna el valor a "apertura_c"
+      pop(pila_apertura) ;                                     // Con "pop" borro aquel elemento de pila_apertura
+      pop(pila_cierre) ;                                       // Con "pop" borro aquel elemento de pila_cierre
 
       if (((*apertura_a) == '(' && (*apertura_c) != ')') || 
          ((*apertura_a) == '[' && (*apertura_c) != ']') || 
-         ((*apertura_a) == '{' && (*apertura_c) != '}'))
+         ((*apertura_a) == '{' && (*apertura_c) != '}'))       // Condición por si no son balanceados
       { 
-         free(pila_apertura) ;
-         free(pila_cierre) ;
-         return 0 ;
+         free(pila_apertura) ;                                 // Libero la memoria de la pila_apertura
+         free(pila_cierre) ;                                   // Libero la memoria de la pila_cierre
+         return 0 ;                                            // Retorno no balanceado
       }
    }
-   free(pila_apertura) ;
-   free(pila_cierre) ;
-   return 1 ;
+   free(pila_apertura) ;                                       // Libero la memoria de la pila_apertura
+   free(pila_cierre) ;                                         // Libero la memoria de la pila_cierre
+   return 1 ;                                                  // Retorno balanceado
 }
