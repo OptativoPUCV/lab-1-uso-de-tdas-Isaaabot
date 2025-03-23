@@ -938,3 +938,35 @@ exercises.c:153:23: error: initialization makes integer from pointer without a c
 cc1.exe: all warnings being treated as errors
 Compilation failed
 d3a4c08
+Sun, Mar 23, 2025  2:40:37 AM: 
+ exercises.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:145:16: error: assignment makes pointer from integer without a cast [-Werror=int-conversion]
+       caracter = cadena[k] ;
+                ^
+exercises.c:147:20: error: comparison between pointer and integer [-Werror]
+       if (caracter == '(' || caracter == '[' || caracter == '{')
+                    ^~
+exercises.c:147:39: error: comparison between pointer and integer [-Werror]
+       if (caracter == '(' || caracter == '[' || caracter == '{')
+                                       ^~
+exercises.c:147:58: error: comparison between pointer and integer [-Werror]
+       if (caracter == '(' || caracter == '[' || caracter == '{')
+                                                          ^~
+exercises.c:153:23: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       char apertura = pop(pila_apertura) ;
+                       ^~~
+exercises.c:156:40: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                                        ^~
+exercises.c:156:80: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                                                                                ^~
+exercises.c:156:120: error: comparison between pointer and integer [-Werror]
+       if ((apertura == '(' && caracter != ')') || (apertura == '[' && caracter != ']') || (apertura == '{' && caracter != '}'))
+                                                                                                                        ^~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+61d60f2
