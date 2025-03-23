@@ -137,15 +137,15 @@ contiene inicialmente.
 int parentesisBalanceados(char *cadena) 
 {
    Stack *pila_apertura = create_stack() ;
-   char *caracter ;
+   char caracter ;
    //int talla = 0 ;
 
    for (int k = 0; cadena[k] ; k++)
    {
-      *caracter = cadena[k] ;
+      caracter = cadena[k] ;
 
       if (caracter == '(' || caracter == '[' || caracter == '{')
-         push(pila_apertura, caracter) ;   
+         push(pila_apertura, &caracter) ;   
       else
          if (pila_apertura == NULL)
             return 0 ;  

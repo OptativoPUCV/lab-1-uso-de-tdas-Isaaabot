@@ -1002,3 +1002,14 @@ exercises.c:145:17: error: 'caracter' may be used uninitialized in this function
 cc1.exe: all warnings being treated as errors
 Compilation failed
 74d63d7
+Sun, Mar 23, 2025  2:42:25 AM: 
+ exercises.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:5:0:
+exercises.c: In function 'parentesisBalanceados':
+exercises.c:153:23: error: initialization makes integer from pointer without a cast [-Werror=int-conversion]
+       char apertura = pop(pila_apertura) ;
+                       ^~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+5d226c3
