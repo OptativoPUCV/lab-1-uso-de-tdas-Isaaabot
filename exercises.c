@@ -162,19 +162,19 @@ int parentesisBalanceados(char *cadena)
 
    for (int k = 0 ; k < (talla / 2) ; k++)
    {
-      if (top(pila_apertura) == '(' && top(pila_cierre) == ')') 
+      if ((top(pila_apertura) == '(') && (top(pila_cierre) == ')')) 
       {        
          pop(pila_apertura) ;
          pop(pila_cierre) ;         
          //cont++ ;
       }
-      else if (top(pila_apertura) == '[' && top(pila_cierre) == ']')
+      else if ((top(pila_apertura) == '[') && (top(pila_cierre) == ']'))
       {   
          pop(pila_apertura) ;
          pop(pila_cierre) ;               
          //cont++ ;
       }
-      else if (top(pila_apertura) == '{' && top(pila_cierre) == '}')
+      else if ((top(pila_apertura) == '{') && (top(pila_cierre) == '}'))
       {                 
          pop(pila_apertura) ;
          pop(pila_cierre) ;               
